@@ -22,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         
         //需要设置根视图控制器
+        window?.rootViewController = MainViewController()
         return true
     }
 

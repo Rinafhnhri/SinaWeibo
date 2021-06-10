@@ -12,24 +12,21 @@ class MainViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+        //添加子视图控制器
+        addChildViewControllers()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    //private表示只能在本类中进行访问
+    private func addChildViewControllers() {
+        let homeVC = HomeTableViewController()
+        let nav = UINavigationController(rootViewController: homeVC)
+//        title = "首页"
+//        nav.title = "首页"
+        homeVC.title = "首页"
+        //在swift中 self 可以省略
+        self.addChildViewController(nav)
     }
-    */
 
 }
