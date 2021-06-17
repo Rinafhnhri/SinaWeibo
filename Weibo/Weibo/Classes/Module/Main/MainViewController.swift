@@ -11,13 +11,22 @@
 // cmd + a -> cmd + x -> cmd + v
 
 //cmd + shift + j 快速聚焦
+
+
+//OC 中 大招  KVC
+//setValue 和 setObject 有什么区别
 import UIKit
 
 class MainViewController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        //tabBar 是只读属性 不能够直接进行设置  可以使用  KVC 在运行时 间接赋值 (改变身份)
+        print(tabBar.classForCoder)
+        let mainTabBar = MainTabBar()
+        setValue(mainTabBar, forKey: "tabBar")
+        //classForCoder 对象的类的字符串形式
+        print(tabBar.classForCoder)
         //添加子视图控制器
         addChildViewControllers()
     }
